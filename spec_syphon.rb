@@ -37,7 +37,7 @@ def fq_gem_name name, version, platform=nil
   "#{name}-#{version}#{platform_string}.gem"
 end
 
-### Main Logic...
-`gem list sinatra --remote --all --source #{$gem_url}/`.lines.each do |gem_entry|
+### Use gem to find all latest sources. See gem docs for options
+`gem list --remote --source #{$gem_url}/`.lines.each do |gem_entry|
   fetch_gems_for gem_entry
 end
